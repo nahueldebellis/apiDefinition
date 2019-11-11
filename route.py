@@ -1,5 +1,5 @@
 from word import Word
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import nltk
 from flask_cors import CORS
 import pdfkit

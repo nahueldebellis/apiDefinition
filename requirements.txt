@@ -2,5 +2,4 @@ Flask
 flask_cors
 nltk
 gunicorn
-wkhtmltopdf-pack
 pdfkit
