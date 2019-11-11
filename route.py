@@ -18,8 +18,10 @@ def synonym(word):
 @app.route('/pdf/<text>')
 def pdf(text):
     sentence = text
-    pdfkit.from_string(sentence, 'out.pdf')
-    return send_file('./out.pdf', mimetype='application/pdf')
+    WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], stdout=subprocess.PIPE).communicate()[0].strip()
+    return pdfkit.from_string(sentence, configuration=configuration)
+    #pdfkit.from_string(sentence, 'out.pdf')
+    #return send_file('./out.pdf', mimetype='application/pdf')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
