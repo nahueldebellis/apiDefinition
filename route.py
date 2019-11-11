@@ -20,6 +20,7 @@ def synonym(word):
 def pdf(text):
     sentence = text
     WKHTMLTOPDF_CMD = subprocess.Popen(['which', os.environ.get('WKHTMLTOPDF_BINARY', 'wkhtmltopdf')], stdout=subprocess.PIPE).communicate()[0].strip()
+    configuration =pdfkit.configuration(wkhtmltopdf=WKHTMLTOPDF_CMD)
     return pdfkit.from_string(sentence, False, configuration=configuration)
     #pdfkit.from_string(sentence, 'out.pdf')
     #return send_file('./out.pdf', mimetype='application/pdf')
