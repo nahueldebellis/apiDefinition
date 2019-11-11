@@ -4,6 +4,7 @@ import nltk
 from flask_cors import CORS
 import pdfkit
 import os
+import  subprocess
 from flask import render_template as rt
 
 app = Flask(__name__)
